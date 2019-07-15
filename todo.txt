@@ -1,0 +1,8 @@
+1) Build outline --
+2) Make search form --
+3) Connect API --
+4) Make sure search works --
+    Added input validation (alphanumeric) --
+5) Click search result to go to detail page --
+6) Make random button go to random detail page --
+7) Styling and finishing touches
