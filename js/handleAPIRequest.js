@@ -64,7 +64,7 @@ function validateInput(strSearch) {
     alert("Error: Input is empty!");
     return false;
   }
-  const re = /^[\w ]+$/;
+  const re = /^[\w +%]+$/;
 
   if (!re.test(strSearch)) {
     alert("Error: Input contains invalid characters!");
