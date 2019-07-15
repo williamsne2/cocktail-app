@@ -64,13 +64,7 @@ function createDetail(data) {
   instructions.innerText = data.strInstructions;
   const glass = document.createElement("p");
   glass.innerText = `Serve in a ${data.strGlass}`;
-  /*const resultCard = document.createElement("div");
-      resultCard.classList.add("result-card");
-      const link_to = document.createElement("a");
-      link_to.href = `./detail.html#${e.idDrink}`;*/
 
-  //link_to.appendChild(drinkName);
-  //resultCard.appendChild(link_to);
   container.appendChild(drinkName);
   container.appendChild(alcoholic);
   container.appendChild(drinkImg);
