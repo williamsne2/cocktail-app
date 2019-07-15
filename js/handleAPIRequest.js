@@ -29,11 +29,14 @@ function displayResults(data) {
   data.forEach(e => {
     const resultCard = document.createElement("div");
     resultCard.classList.add("result-card");
+    const link_to = document.createElement("a");
+    link_to.href = `./detail.html#${e.idDrink}`;
     const drinkName = document.createElement("h3");
     drinkName.innerText = e.strDrink;
     const drinkImg = document.createElement("img");
     drinkImg.src = e.strDrinkThumb;
-    resultCard.appendChild(drinkName);
+    link_to.appendChild(drinkName);
+    resultCard.appendChild(link_to);
     resultCard.appendChild(drinkImg);
     container.appendChild(resultCard);
     container.appendChild(document.createElement("br"));
