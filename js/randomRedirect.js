@@ -4,7 +4,7 @@ request.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     let data = JSON.parse(this.response);
     console.log(data);
-    window.location.replace(`../src/detail.html#${data.drinks[0].idDrink}`);
+    window.location.replace(`../views/detail.html#${data.drinks[0].idDrink}`);
   }
 };
 

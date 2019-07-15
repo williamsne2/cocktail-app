@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cocktail App - Search Results</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="search-header">
+        <a href="./home.html">Home</a>
+        <form action="./results.html" method="GET" class="results-form">
+          <input
+            type="text"
+            placeholder="Search by ingredients or name a drink"
+            name="search"
+          />
+          <span class="form-buttons">
+            <button type="submit" name="submit_button" value="Submit">
+              Submit
+            </button>
+            <button
+              type="button"
+              onclick="window.location.href = './random.html'"
+            >
+              Random Drink
+            </button>
+          </span>
+        </form>
+      </div>
+    </header>
+
+    <div class="search-results">
+      <!--hook for js DOM elements-->
+    </div>
+    <footer>
+      <p>Written by: Nick Williams</p>
+      <p>
+        Contact information:
+        <a href="mailto:williamsne2@gmail.com">williamsne2@gmail.com</a>
+      </p>
+    </footer>
+  </body>
+  <script src="../../js/handleAPIRequest.js"></script>
+</html>

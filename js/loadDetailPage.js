@@ -38,13 +38,14 @@ function generateIngredientsList(data) {
 }
 function createDetail(data) {
   const container = document.querySelector(".drink-detail");
-  const drinkName = document.createElement("h2");
+  const drinkName = document.createElement("h1");
   drinkName.innerText = data.strDrink;
-  const alcoholic = document.createElement("h4");
+  const alcoholic = document.createElement("h3");
   alcoholic.innerText = `(${data.strAlcoholic})`;
   const drinkImg = document.createElement("img");
   drinkImg.src = data.strDrinkThumb;
-  const ingredientsHeader = document.createElement("p");
+  const ingredientsHeader = document.createElement("h3");
+  ingredientsHeader.classList.add("ingredients-header");
   ingredientsHeader.innerText = "Ingredients: ";
 
   const dict = generateIngredientsList(data);
@@ -65,14 +66,19 @@ function createDetail(data) {
   const glass = document.createElement("p");
   glass.innerText = `Serve in a ${data.strGlass}`;
 
+  const img_ingredients_span = document.createElement("span");
+  img_ingredients_span.classList.add("img-ingredients-span");
+  const ingredientsTable = document.createElement("span");
+  ingredientsTable.classList.add("ingredients-table");
   container.appendChild(drinkName);
   container.appendChild(alcoholic);
-  container.appendChild(drinkImg);
-  container.appendChild(ingredientsHeader);
-  container.appendChild(ingredients);
+  img_ingredients_span.appendChild(drinkImg);
+  ingredientsTable.appendChild(ingredientsHeader);
+  ingredientsTable.appendChild(ingredients);
+  img_ingredients_span.appendChild(ingredientsTable);
+  container.appendChild(img_ingredients_span);
   container.appendChild(instructions);
   container.appendChild(glass);
-  container.appendChild(document.createElement("br"));
 }
 function parseURL(variable) {
   let drinkID = window.location.hash.substring(1);

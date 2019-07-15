@@ -35,11 +35,13 @@ function displayResults(data) {
     drinkName.innerText = e.strDrink;
     const drinkImg = document.createElement("img");
     drinkImg.src = e.strDrinkThumb;
+    const img_link_to = document.createElement("a");
+    img_link_to.href = `./detail.html#${e.idDrink}`;
     link_to.appendChild(drinkName);
+    img_link_to.appendChild(drinkImg);
     resultCard.appendChild(link_to);
-    resultCard.appendChild(drinkImg);
+    resultCard.appendChild(img_link_to);
     container.appendChild(resultCard);
-    container.appendChild(document.createElement("br"));
   });
 }
 

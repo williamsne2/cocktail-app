@@ -1,0 +1,51 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+@mixin form($direction) {
+  form {
+    width: 70%;
+    @include flexCenter($direction);
+    margin: 20px;
+    input {
+      width: 80%;
+      height: 30px;
+      border-radius: 10px;
+      border: none;
+      padding: 0 0 0 5px;
+      @if $direction == column {
+        margin: 0 0 20px 0;
+      } @else {
+        margin: 0 10px;
+      }
+    }
+    .form-buttons {
+      @include flexCenter(row);
+      @media only screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+      button {
+        border-radius: 10px;
+        height: 30px;
+        width: 150px;
+        background-color: rgba(0, 0, 0, 0);
+        border: solid 1px whitesmoke;
+        color: whitesmoke;
+        @if $direction == "column" {
+          margin: 10px;
+        } @else {
+          margin: 0 10px;
+        }
+        &:hover {
+          background-color: rgba(150, 150, 150, 0.3);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

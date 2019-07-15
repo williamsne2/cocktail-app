@@ -3,37 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cocktail App</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
-    <header>
+    <header></header>
+
+    <div class="main-search">
       <!--background image-->
       <h1>Cocktail App</h1>
       <p>
         Learn new cocktails and share with your friends. Search below to get
         started!
       </p>
-    </header>
-
-    <div class="main-search">
       <form action="./results.html" method="GET">
         <input type="text" placeholder="Search by ingredients" name="search" />
-        <button type="submit" id="submit">
-          Submit
-        </button>
+        <span class="form-buttons">
+          <button type="submit" name="submit_button" value="Submit">
+            Submit
+          </button>
+          <button
+            type="button"
+            onclick="window.location.href = './random.html'"
+          >
+            Random Drink
+          </button>
+        </span>
       </form>
-      <button onclick="window.location.href = './random.html'">
-        Random Drink
-      </button>
     </div>
-    <br />
-    <br />
     <footer>
       <p>Written by: Nick Williams</p>
       <p>
