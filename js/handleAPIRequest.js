@@ -44,13 +44,31 @@ function parseSearch(variable) {
   let query = window.location.search.substring(1);
   let vars = query.split("&");
   for (var i = 0; i < vars.length; i++) {
+    console.log(vars[i]);
     let pair = vars[i].split("=");
-    if (decodeURIComponent(pair[0]) == variable) {
-      return decodeURIComponent(pair[1]);
+    console.log(pair);
+    if (validateInput(pair[0]) && validateInput(pair[1])) {
+      if (decodeURIComponent(pair[0]) == variable) {
+        return decodeURIComponent(pair[1]);
+      }
     }
   }
-
   console.log("Query variable %s not found", variable);
 }
+
+function validateInput(strSearch) {
+  if (strSearch == "") {
+    alert("Error: Input is empty!");
+    return false;
+  }
+  const re = /^[\w ]+$/;
+
+  if (!re.test(strSearch)) {
+    alert("Error: Input contains invalid characters!");
+    return false;
+  }
+  return true;
+}
+
 const query = parseSearch("search");
 handleHTTPRequest(query);
