@@ -12,5 +12,5 @@ Unfortunately, the Cocktail API itself comes with a few limitations. Namely, it 
 
 (FYI some of the drink names in the API are somewhat NSFW)
 
-[[https://github.com/williamsne2/cocktail-app/tree/master/img/sample_search_page.PNG|alt=search_page]]
-[[https://github.com/williamsne2/cocktail-app/tree/master/img/sample_detail_page.PNG|alt=detail_page]]
+[[https://github.com/williamsne2/cocktail-app/blob/master/img/sample_search_page.PNG]]
+[[https://github.com/williamsne2/cocktail-app/tree/master/img/sample_detail_page.PNG]]
