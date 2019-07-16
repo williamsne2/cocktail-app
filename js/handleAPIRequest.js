@@ -1,12 +1,16 @@
 function handleHTTPRequest(searchString) {
   console.log(searchString);
   let request = new XMLHttpRequest();
-
+  let query = searchString;
   request.onreadystatechange = function() {
+    console.log(this.status);
     if (this.readyState == 4 && this.status == 200) {
-      console.log("pass");
-      let data = JSON.parse(this.response);
-      displayResults(data.drinks);
+      try {
+        let data = JSON.parse(this.response);
+        displayResults(data.drinks, query);
+      } catch (e) {
+        displayResults([], query);
+      }
     }
   };
 
@@ -23,9 +27,18 @@ function handleHTTPRequest(searchString) {
   request.send();
 }
 
-function displayResults(data) {
+function displayResults(data, searchString) {
   console.log(data);
-  const container = document.querySelector(".search-results");
+  const super_container = document.querySelector(".super-container");
+  const container = document.createElement("div");
+  container.classList.add("search-results");
+  const resultsText = document.createElement("p");
+  if (data.length != 0) {
+    resultsText.innerText = `Showing results for: ${searchString}`;
+  } else {
+    resultsText.innerText = "Your search didn't return any results";
+  }
+  super_container.appendChild(resultsText);
   data.forEach(e => {
     const resultCard = document.createElement("div");
     resultCard.classList.add("result-card");
@@ -43,6 +56,7 @@ function displayResults(data) {
     resultCard.appendChild(img_link_to);
     container.appendChild(resultCard);
   });
+  super_container.appendChild(container);
 }
 
 function parseSearch(variable) {

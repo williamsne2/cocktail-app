@@ -54,6 +54,19 @@ footer {
   }
 }
 
+.super-container {
+  background-color: rgb(34, 34, 34);
+  justify-items: center;
+  align-items: left;
+  min-height: 600px;
+
+  p {
+    color: whitesmoke;
+    padding: 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 1em;
+  }
+}
 .search-results {
   display: grid;
   width: 100%;
@@ -66,9 +79,6 @@ footer {
   }
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  background-color: rgb(34, 34, 34);
-  justify-items: center;
-  align-items: center;
 }
 .result-card {
   @include flexCenter(column);
@@ -116,6 +126,9 @@ footer {
   }
   .img-ingredients-span {
     @include flexCenter(row);
+    @media only screen and (max-width: 768px) {
+      @include flexCenter(column);
+    }
     width: 60%;
   }
   p {
