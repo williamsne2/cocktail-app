@@ -3,7 +3,7 @@ let request = new XMLHttpRequest();
 request.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     let data = JSON.parse(this.response);
-    console.log(data);
+    //Redirect to the given random drink's detail page
     window.location.replace(`../views/detail.html#${data.drinks[0].idDrink}`);
   }
 };

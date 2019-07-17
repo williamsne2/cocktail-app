@@ -1,7 +1,7 @@
 function handleHTTPRequest(searchString) {
-  console.log(searchString);
   let request = new XMLHttpRequest();
   let query = searchString;
+
   request.onreadystatechange = function() {
     console.log(this.status);
     if (this.readyState == 4 && this.status == 200) {
@@ -28,7 +28,9 @@ function handleHTTPRequest(searchString) {
 }
 
 function displayResults(data, searchString) {
-  console.log(data);
+  //This method generates DOM elements for the search page
+  //A super container is used to house the text "Showing results for: x"
+  //as well as holding the CSS grid of search results
   const super_container = document.querySelector(".super-container");
   const container = document.createElement("div");
   container.classList.add("search-results");
@@ -39,6 +41,8 @@ function displayResults(data, searchString) {
     resultsText.innerText = "Your search didn't return any results";
   }
   super_container.appendChild(resultsText);
+
+  //Create "Search result cards" to append to the CSS grid
   data.forEach(e => {
     const resultCard = document.createElement("div");
     resultCard.classList.add("result-card");
@@ -56,16 +60,17 @@ function displayResults(data, searchString) {
     resultCard.appendChild(img_link_to);
     container.appendChild(resultCard);
   });
+
   super_container.appendChild(container);
 }
 
 function parseSearch(variable) {
+  //Parse search variable from URL query ?search=xxxx
   let query = window.location.search.substring(1);
+  //split for multiple queries ex: ?search=coffee&?alcoholic=true
   let vars = query.split("&");
   for (var i = 0; i < vars.length; i++) {
-    console.log(vars[i]);
     let pair = vars[i].split("=");
-    console.log(pair);
     if (validateInput(pair[0]) && validateInput(pair[1])) {
       if (decodeURIComponent(pair[0]) == variable) {
         return decodeURIComponent(pair[1]);
@@ -76,6 +81,8 @@ function parseSearch(variable) {
 }
 
 function validateInput(strSearch) {
+  //Validate user input by regex. Allowed characters are
+  //alphanumeric, +, %
   if (strSearch == "") {
     alert("Error: Input is empty!");
     return false;
